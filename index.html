@@ -163,43 +163,54 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none;
             z-index: 100;
+            width: 300px; /* 增加寬度 */
+            padding: 20px; /* 增加內間距 */
         }
-
-        .cart-dropdown ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
+        
         .cart-dropdown ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
             border-bottom: 1px solid #ccc;
         }
-
-        .cart-dropdown ul li:last-child {
-            border-bottom: none;
+        
+        .cart-dropdown ul li img {
+            width: 60px; /* 增加圖片寬度 */
+            height: 60px; /* 增加圖片高度 */
+            margin-right: 10px;
         }
-
-        .cart-dropdown p {
-            padding: 10px;
-            margin: 0;
+        
+        .cart-dropdown ul li div {
+            flex: 1;
+            margin-left: 10px; /* 增加左邊距 */
+        }
+        
+        .cart-dropdown ul li div span {
+            display: block;
+            font-size: 16px; /* 增加字體大小 */
+        }
+        
+        .cart-dropdown ul li div input {
+            width: 50px; /* 增加輸入框寬度 */
             text-align: center;
         }
-
-        .cart-dropdown button {
-            display: block;
-            width: 100%;
-            padding: 10px;
+        
+        .cart-dropdown ul li button {
             background-color: #333;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            padding: 5px 10px; /* 增加內間距 */
+            font-size: 14px; /* 增加字體大小 */
         }
-
-        .cart-dropdown button:hover {
+        
+        .cart-dropdown ul li button:hover {
             background-color: #555;
         }
+        
     </style>
 </head>
 
@@ -214,12 +225,14 @@
         </div>
         <!-- 購物車 -->
         <div class="cart">
-            <img src="cart-icon.png" alt="Cart Icon" class="cart-icon" onclick="toggleCart()">
+            <img src="images/cart-icon.jpg" alt="Cart Icon" class="cart-icon" onclick="toggleCart()">
             <span id="cartItemCount" class="cart-item-count">0</span>
             <!-- 購物車彈出視窗 -->
             <div class="cart-dropdown" id="cartDropdown">
                 <ul id="cart-items"></ul>
                 <p id="total-price">總價: $0</p>
+                <input type="text" id="promoCode" placeholder="輸入優惠碼">
+                <button onclick="applyPromoCode()">使用優惠碼</button>
                 <button onclick="checkout()">結帳</button>
             </div>
         </div>
@@ -232,294 +245,294 @@
             <h2>短版上衣</h2>
             <p>涼快且舒適的上衣</p>
             <p>價格: $299</p>
-            <button onclick="addToCart('短版上衣', 299)">加入購物車</button>
+            <button onclick="addToCart('短版上衣', 299,'衣服.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\長袖.jpg" alt="產品2">
             <h2>長版上衣</h2>
             <p>保暖上衣</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('長版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('長版上衣', 499,'長袖.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\外套.jpg" alt="產品3">
             <h2>厚外套</h2>
             <p>防暖且防風外套</p>
             <p>價格: $1099</p>
-            <button onclick="addToCart('厚外套', 1099)">加入購物車</button>
+            <button onclick="addToCart('厚外套', 1099,'外套.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\NO.jpg" alt="產品5">
             <h2>短版上衣</h2>
             <p>潮流上衣</p>
             <p>價格: $899</p>
-            <button onclick="addToCart('短版上衣', 1099)">加入購物車</button>
+            <button onclick="addToCart('短版上衣', 1099,'NO.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\shira.jpg" alt="產品4">
             <h2>短版上衣</h2>
             <p>潮流上衣</p>
             <p>價格: $788</p>
-            <button onclick="addToCart('短版上衣', 1099)">加入購物車</button>
+            <button onclick="addToCart('短版上衣', 1099,'shira.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\三小.jpg" alt="產品6">
             <h2>短版上衣</h2>
             <p>潮流上衣</p>
             <p>價格: $988</p>
-            <button onclick="addToCart('短版上衣', 1099)">加入購物車</button>
+            <button onclick="addToCart('短版上衣', 1099,'三小.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\艾.jpg" alt="產品7">
             <h2>阿迪達斯</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('阿迪達斯', 499,'艾.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\艾白.jpg" alt="產品8">
             <h2>阿迪達斯(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('阿迪達斯(白)', 499,'艾白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\阿.jpg" alt="產品9">
             <h2>阿迪達斯</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('阿迪達斯', 499,'阿.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\阿白.jpg" alt="產品10">
             <h2>阿迪達斯(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('阿迪達斯(白)', 499,'阿白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\no.jpg" alt="產品11">
             <h2>不平衡</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('不平衡', 499,'no.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\no白.jpg" alt="產品12">
             <h2>不平衡(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('不平衡(白)', 499,'no白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\胖.jpg" alt="產品13">
             <h2>胖喬丹</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('胖喬丹', 499,'胖.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\胖白.jpg" alt="產品14">
             <h2>胖喬丹(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('胖喬丹(白)', 499,'胖白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\porn.jpg" alt="產品15">
             <h2>porn</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('porn', 499,'porn.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\porn白.jpg" alt="產品16">
             <h2>porn(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('porn(白)', 499,'porn白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\突然.jpg" alt="產品17">
             <h2>突然想穿</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('突然想穿', 499,'突然.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\突然白.jpg" alt="產品18">
             <h2>突然想穿(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('突然想穿(白)', 499,'突然白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\1.jpg" alt="產品19">
             <h2>1</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('1', 499,'1.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\2.jpg" alt="產品20">
             <h2>2</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('2', 499,'2.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\睡.jpg" alt="產品21">
             <h2>睡眠不足</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('睡眠不足', 499,'睡.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\睡白.jpg" alt="產品22">
             <h2>睡眠不足(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('睡眠不足(白)', 499,'睡白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\瘦.jpg" alt="產品23">
             <h2>未來會瘦</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('未來會瘦', 499,'瘦.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\瘦白.jpg" alt="產品24">
             <h2>未來會瘦(白)</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('短版上衣', 499)">加入購物車</button>
+            <button onclick="addToCart('未來會瘦(白)', 499,'瘦白.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\海綿.jpg" alt="產品25">
             <h2>海綿寶寶褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('海綿寶寶褲子', 499,'海綿.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\熊.jpg" alt="產品26">
             <h2>熊豹哥褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('熊豹哥褲子', 499,'熊.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\卡比.jpg" alt="產品27">
             <h2>卡比褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('卡比褲子', 499,'卡比.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\派大.jpg" alt="產品28">
             <h2>派大星褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('派大星褲子', 499,'派大.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\蠟筆.jpg" alt="產品29">
             <h2>蠟筆小新褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('蠟筆小新褲子', 499,'蠟筆.jpg')">加入購物車</button>
         </div>
         <div class="product">
             <img src="images\史.jpg" alt="產品30">
             <h2>史迪奇褲子</h2>
             <p>正版</p>
             <p>價格: $499</p>
-            <button onclick="addToCart('褲子', 499)">加入購物車</button>
+            <button onclick="addToCart('史迪奇褲子', 499,'史.jpg')">加入購物車</button>
         </div>
             <div class="product">
                 <img src="images\比奇堡.jpg" alt="產品31">
                 <h2>海綿寶寶褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('海綿寶寶褲子', 499,'比奇堡.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\蟹.jpg" alt="產品32">
                 <h2>蟹老闆褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('蟹老闆褲子', 499,'蟹.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\辣.jpg" alt="產品33">
                 <h2>蠟筆小新褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('蠟筆小新褲子', 499,'辣.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\辣黑.jpg" alt="產品34">
                 <h2>蠟筆小新褲子(黑)</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('蠟筆小新褲子(黑)', 499,'辣黑.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\大.jpg" alt="產品35">
                 <h2>派大星褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('派大星褲子', 499,'大.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\藍鴨.jpg" alt="產品36">
                 <h2>藍色鴨子褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('藍色鴨子褲子', 499,'藍鴨.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\黑鴨.jpg" alt="產品37">
                 <h2>黑色鴨子褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('黑色鴨子褲子', 499,'黑鴨.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\粉鴨.jpg" alt="產品38">
                 <h2>粉色鴨子褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('粉色鴨子褲子', 499,'粉鴨.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\皮.jpg" alt="產品39">
                 <h2>皮老闆褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('皮老闆褲子', 499,'皮.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\巴.jpg" alt="產品40">
                 <h2>巴斯光年褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('巴斯光年褲子', 499,'巴.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\巴斯.jpg" alt="產品41">
                 <h2>巴斯光年褲子(綠)</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('巴斯光年褲子(綠)', 499,'巴斯.jpg')">加入購物車</button>
             </div>
             <div class="product">
                 <img src="images\小.jpg" alt="產品42">
                 <h2>蠟筆小新褲子</h2>
                 <p>正版</p>
                 <p>價格: $499</p>
-                <button onclick="addToCart('褲子', 499)">加入購物車</button>
+                <button onclick="addToCart('蠟筆小新褲子', 499,'小.jpg')">加入購物車</button>
             </div>
     </div>
     <!-- 分頁 -->
@@ -539,8 +552,6 @@
         <a href="javascript:void(0)" onclick="goToPage(12)">12</a>
         <a href="javascript:void(0)" onclick="goToPage(13)">13</a>
         <a href="javascript:void(0)" onclick="goToPage(14)">14</a>
-        <a href="javascript:void(0)" onclick="goToPage(15)">15</a>
-        <a href="javascript:void(0)" onclick="goToPage(16)">16</a>
     </div>
 
     <!-- 分類按鈕 -->
@@ -553,12 +564,17 @@
     <script>
         var cart = []; // 購物車內容
 
-        // 將商品加入購物車
-        function addToCart(productName, price) {
-            cart.push({ name: productName, price: price });
-            updateCart(); // 更新購物車內容
-            alert('已將商品加入購物車！');
-        }
+// 將商品加入購物車
+function addToCart(productName, price, image) {
+    var existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: price, quantity: 1, image: image });
+    }
+    updateCart(); // 更新購物車內容
+    alert('已將商品加入購物車！');
+}
         function toggleCart() {
             var cartDropdown = document.getElementById('cartDropdown');
             if (cartDropdown.style.display === 'block') {
@@ -575,38 +591,68 @@
         }
 
         // 更新購物車內容
-        function updateCart() {
-            var cartItemsElement = document.getElementById('cart-items'); // 購物車項目列表
-            var totalPriceElement = document.getElementById('total-price'); // 總價格
-            var cartItemCountElement = document.getElementById('cartItemCount'); // 購物車項目數量
-            var totalPrice = 0; // 總價格
+function updateCart() {
+    var cartItemsElement = document.getElementById('cart-items'); // 購物車項目列表
+    var totalPriceElement = document.getElementById('total-price'); // 總價格
+    var cartItemCountElement = document.getElementById('cartItemCount'); // 購物車項目數量
+    var totalPrice = 0; // 總價格
 
-            // 清空先前的購物車項目
-            cartItemsElement.innerHTML = '';
+    // 清空先前的購物車項目
+    cartItemsElement.innerHTML = '';
 
-            // 填充購物車項目
+    // 填充購物車項目
+    cart.forEach(function(item) {
+        var li = document.createElement('li');
+        li.innerHTML = `
+            <img src="images/${item.image}" alt="${item.name}">
+            <div>
+                <span>${item.name}</span>
+                <span>$${item.price}</span>
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value)">
+            </div>
+            <button onclick="removeFromCart('${item.name}')">移除</button>
+        `;
+        cartItemsElement.appendChild(li);
+        totalPrice += item.price * item.quantity;
+    });
+
+    // 更新總價格
+    totalPriceElement.textContent = '總價: $' + totalPrice;
+
+    // 更新購物車項目數量
+    cartItemCountElement.textContent = cart.length;
+}
+        
+        // 更新商品數量
+        function updateQuantity(productName, quantity) {
             cart.forEach(function(item) {
-                var li = document.createElement('li');
-                li.textContent = item.name + ' - $' + item.price;
-                cartItemsElement.appendChild(li);
-                totalPrice += item.price;
+                if (item.name === productName) {
+                    item.quantity = quantity;
+                }
             });
-
-            // 更新總價格
-            totalPriceElement.textContent = '總價: $' + totalPrice;
-
-            // 更新購物車項目數量
-            cartItemCountElement.textContent = cart.length;
+            updateCart();
         }
-
+        
+        // 使用優惠碼
+        function applyPromoCode() {
+            var promoCode = document.getElementById('promoCode').value;
+            if (promoCode === 'DISCOUNT10') {
+                var totalPriceElement = document.getElementById('total-price');
+                var currentPrice = parseFloat(totalPriceElement.textContent.replace('總價: $', ''));
+                var newPrice = currentPrice * 0.9; // 10% 折扣
+                totalPriceElement.textContent = '總價: $' + newPrice.toFixed(2);
+                alert('優惠碼使用成功！');
+            } else {
+                alert('無效的優惠碼');
+            }
+        }
+        
         // 結帳操作
         function checkout() {
-            // 執行結帳操作（例如，將購物車數據發送到伺服器）
             alert('感謝您的購買！您的訂單已提交。');
             cart = []; // 清空購物車
             updateCart(); // 更新購物車內容
         }
-
         // 分類功能
 function filterCategory(category) {
     var products = document.querySelectorAll('.product');
